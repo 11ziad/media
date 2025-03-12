@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+.active{
+
+    border-bottom: 3px solid white !important; 
+    border-radius: 10px;
+    color: white !important;
+}
+
+body{
+    background-color: #eeee;
+    /* font-family: "Roboto Mono", serif;   */
+}
