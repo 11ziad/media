@@ -114,7 +114,7 @@ export default function PostDetails() {
                                 {post.image && (
                                     <img src={post.image} className="w-full md:h-[300px] h-[240px] object-cover" alt="" />
                                 )}
-                                <div className="flex justify-around w-full  px-3 mt-5  py-4 dark:text-gray-400 text-gray-500 items-center">
+                                <div className="flex justify-around w-full  px-3 mt-5  py-2 dark:text-gray-400 text-gray-500 items-center">
 
                                             <div className="w-full">
                                         <NavLink to={`allComment/${post.id}`}>

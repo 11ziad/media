@@ -100,15 +100,20 @@ export default function UserPosts() {
                   alt=""
                 />
               )}
-              <div className="flex justify-around w-full px-3 py-4 dark:text-gray-400 text-gray-500 items-center">
-                <i className="text-xl hover:cursor-pointer fa-solid fa-thumbs-up"></i>
-
-                <NavLink to={`/allComment/${post.id}`}>
-                  <i className="text-xl hover:cursor-pointer fa-solid fa-comment"></i>
-                </NavLink>
-
-                <i className="text-xl hover:cursor-pointer fa-solid fa-share-nodes"></i>
-              </div>
+                   <div className="flex justify-around w-full  px-3 mt-5  py-2 dark:text-gray-400 text-gray-500 items-center">
+               
+                                                           <div className="w-full">
+                                                       <NavLink to={`allComment/${post.id}`}>
+                                                       <input
+                                                       type="text"
+                                                       id="content"
+                                                       className="block w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none dark:bg-gray-500 dark:text-black transition-all duration-300"
+                                                       placeholder="Add Comment..."
+                                                       required
+                                                       />
+                                                   </NavLink>
+                                                   </div>
+                                               </div>
               {sureDelete && (
                 <motion.div
                   variants={setAnimation}

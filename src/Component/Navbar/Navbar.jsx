@@ -263,7 +263,7 @@ export default function Navbar() {
               <NavLink
                 onClick={() => setHandelNav(false)}
                 className={'text-sm text-white border-b rounded-md py-2 px-2 hover:bg-blue-500 border-blue-400 font-medium'}
-                to={'profile'}
+                to={'profile/'}
               >
                 Profile
                 <i className="ms-2 fa-solid fa-user"></i>
@@ -271,7 +271,7 @@ export default function Navbar() {
               <NavLink
                 onClick={() => setHandelNav(false)}
                 className={'text-sm text-white border-b rounded-md py-2 px-2 hover:bg-blue-500 border-blue-400 font-medium'}
-                to={'addPost'}
+                to={'/'}
               >
                 Posts
                 <i className="ms-2 fa-solid fa-house"></i>
@@ -279,7 +279,7 @@ export default function Navbar() {
               <NavLink
                 onClick={() => setHandelNav(false)}
                 className={'text-sm text-white border-b rounded-md py-2 px-2 hover:bg-blue-500 border-blue-400 font-medium'}
-                to={'addPost'}
+                to={'addPost/'}
               >
                 Add Post
                 <i className="ms-2 fa-solid fa-plus"></i>
@@ -287,7 +287,7 @@ export default function Navbar() {
               <NavLink
                 onClick={() => setHandelNav(false)}
                 className={'text-sm text-white border-b rounded-md py-2 px-2 hover:bg-blue-500 border-blue-400 font-medium'}
-                to={'addPost'}
+                to={'profilePhoto/'}
               >
                 Update Photo
                 <i className=" ms-2 fa-solid fa-camera"></i>
