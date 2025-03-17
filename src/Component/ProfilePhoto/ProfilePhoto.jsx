@@ -59,7 +59,7 @@ export default function ProfilePhoto() {
 
   return (
     <section className="fixed inset-0 flex justify-center items-center bg-opacity-50 bg-white dark:bg-gray-950">
-      <div className="lg:w-6/12 w-11/12 m-auto relative opacity-100 shadow-md p-4 items-center bg-white dark:text-gray-300 dark:bg-gray-800 rounded-md">
+      <div className="lg:w-6/12 w-11/12 m-auto relative opacity-100 shadow-xl border border-gray-300 dark:border-gray-600 p-4 items-center bg-white dark:text-gray-300 dark:bg-gray-800 rounded-md">
         <button
           onClick={() => navigate('/profile')}
           className="absolute cursor-pointer top-3 right-3 text-2xl text-gray-700 dark:text-white"

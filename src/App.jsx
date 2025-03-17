@@ -15,6 +15,7 @@ import UserContextProvider, { UserContext } from './UserContext/UserContext'
 import AllComment from './Component/AllComment/AllComment'
 import AddPost from './Component/AddPost/AddPost'
 import ProfilePhoto from './Component/ProfilePhoto/ProfilePhoto'
+import NotFound from './Component/NotFound/NotFound'
 
 function App() {
   const routers = createBrowserRouter([
@@ -27,6 +28,7 @@ function App() {
       {path   : 'addPost' , element : <ProtectedRoot> <AddPost></AddPost></ProtectedRoot>},
       {path   : 'profilePhoto' , element : <ProtectedRoot> <ProfilePhoto></ProfilePhoto></ProtectedRoot>},
       {path   : 'allComment/:id' , element : <ProtectedRoot> <AllComment></AllComment></ProtectedRoot>},
+      {path   : '*' , element : <ProtectedRoot> <NotFound></NotFound></ProtectedRoot>},
     ]},
   ])
 
@@ -49,8 +51,6 @@ function App() {
     <span className="font-medium me-1">Your Offline ?</span>Please Check your Enternet
   </div>
 </div></div></Offline>
-
-
   <Toaster
          position="top-center"
          z-indix ='50'

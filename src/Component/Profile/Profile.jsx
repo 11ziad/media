@@ -35,20 +35,14 @@ export default function Profile() {
               {/* Profile Image Section */}
               <div className="flex flex-col justify-center items-center lg:flex-row lg:gap-x-10 gap-y-4">
 
-                <div className="w-[50%] lg:w-[40%] lg:h-[40%] rounded-full relative">
+                <div className="w-[50%] lg:w-[40%] m-auto lg:h-[40%] rounded-full relative">
                 <NavLink to="/profilePhoto">
                   <img
+                // <i className="text-gray-700 text-xl lg:text-2xl fa-solid fa-plus"></i>
                     src={userProfile.photo}
-                    className=" object-cover  lg:h-60 lg:w-60 h-56 w-56  rounded-full"
+                    className=" object-cover m-auto lg:h-60 lg:w-60 h-40 w-40  rounded-full"
                     alt="User Profile"
                   />
-                  <div className="absolute bottom-0 left-20 right-20">
-                    <div className="flex bg-gray-200 hover:cursor-pointer p-2 rounded-3xl  justify-center items-center">
-                      <NavLink to="/profilePhoto">
-                        <i className="text-gray-700 text-xl lg:text-2xl fa-solid fa-plus"></i>
-                      </NavLink>
-                    </div>
-                  </div>
                     </NavLink>
                 </div>
 
@@ -90,8 +84,8 @@ export default function Profile() {
                       alt="User"
                     />
                   </NavLink>
-                  <div className="relative ms-3 w-full">
-                    <NavLink to="/addPost">
+                  <div className="relative  ms-3 w-full">
+                    <NavLink to={'/addPost'}>
                       <input
                         type="text"
                         id="simple-search"

@@ -78,7 +78,7 @@ export default function AddPost() {
         initial = "hidden"  
         animate = "visible"
         className="lg:pt-20 pt-10">
-          <div className="lg:w-6/12 w-11/12 m-auto relative shadow-md p-4 items-center bg-white dark:text-gray-300 dark:bg-gray-800 rounded-md">
+          <div className="lg:w-6/12 w-11/12 m-auto relative shadow-md border border-gray-300 dark:border-gray-600 p-4 items-center bg-white dark:text-gray-300 dark:bg-gray-800 rounded-md">
             <NavLink to={'/'}>
               <i className="fa-solid fa-xmark absolute hover:cursor-pointer top-3 right-3 text-2xl"></i>
             </NavLink>
