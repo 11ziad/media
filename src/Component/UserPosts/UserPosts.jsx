@@ -14,7 +14,6 @@ export default function UserPosts() {
   const dispatch = useDispatch();
 
   const token = jwtDecode(localStorage.getItem('token'));
-  console.log(token);
 
   async function deletePost(id) {
     setSureDelete(false);
@@ -27,11 +26,9 @@ export default function UserPosts() {
           },
         }
       );
-      console.log(data);
+      toast.success(data.message);
       // After deleting the post, refresh the user's posts
       dispatch(userPosts(token.user));
-      toast.success(data.message);
-
     } catch (err) {
       console.log(err);
     }
@@ -46,7 +43,10 @@ export default function UserPosts() {
     dispatch(userPosts(token.user));
   }, [dispatch, token.user]);
 
-  console.log(userPost);
+  // Sort posts by createdAt in descending order (recent posts first)
+  const sortedPosts = userPost?.posts
+    ? [...userPost?.posts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    : [];
 
   const setAnimation = {
     hidden: {
@@ -68,48 +68,46 @@ export default function UserPosts() {
   return (
     <>
       {loading ? (
-        <Loader></Loader>
+        <Loader />
       ) : (
         <section className="flex gap-y-6 flex-col justify-center py-9 lg:px-24 m-auto -mt-2">
-          {userPost?.posts?.map((post) => (
-            <>
-              <div className="lg:w-7/12 relative shadow-md rounded-lg overflow-hidden w-11/12 pt-3 m-auto dark:bg-gray-800 dark:text-gray-200 bg-amber-50">
-                <i
-                  onClick={() => setSureDelete(true)}
-                  className="absolute top-3 right-3 hover:cursor-pointer text-red-500 text-xl fa-solid fa-trash"
-                ></i>
-                <div className="px-3 mb-4 flex items-center">
-                  <img
-                    src={post.user.photo}
-                    className="md:w-[40px] object-cover me-3 md:h-[40px] h-[30px] w-[30px] rounded-full"
-                    alt=""
-                  />
-                  <div className="flex flex-col text-sm">
-                    <h3 className="text-[13px] md:text-[14px] font-medium">
-                      {post.user.name}
-                    </h3>
-                    <span className="text-[11px] md:text-[13px]">
-                      {post.createdAt.slice(0, 10)}
-                    </span>
-                  </div>
+          {sortedPosts?.map((post) => (
+            <div key={post.id} className="lg:w-7/12 relative shadow-md rounded-lg overflow-hidden w-11/12 pt-3 m-auto dark:bg-gray-800 dark:text-gray-200 bg-amber-50">
+              <i
+                onClick={() => setSureDelete(true)}
+                className="absolute top-3 right-3 hover:cursor-pointer text-red-500 text-xl fa-solid fa-trash"
+              ></i>
+              <div className="px-3 mb-4 flex items-center">
+                <img
+                  src={post.user.photo}
+                  className="md:w-[40px] object-cover me-3 md:h-[40px] h-[30px] w-[30px] rounded-full"
+                  alt=""
+                />
+                <div className="flex flex-col text-sm">
+                  <h3 className="text-[13px] md:text-[14px] font-medium">
+                    {post.user.name}
+                  </h3>
+                  <span className="text-[11px] md:text-[13px]">
+                    {post.createdAt.slice(0, 10)}
+                  </span>
                 </div>
-                <p className="ps-4 pb-3 pt-3 text-sm">{post.body}</p>
-                {post.image && (
-                  <img
-                    src={post.image}
-                    className="w-full md:h-[300px] h-[240px] object-cover"
-                    alt=""
-                  />
-                )}
-                <div className="flex justify-around w-full px-3 py-4 dark:text-gray-400 text-gray-500 items-center">
-                  <i className="text-xl hover:cursor-pointer fa-solid fa-thumbs-up"></i>
+              </div>
+              <p className="ps-4 pb-3 pt-3 text-sm">{post.body}</p>
+              {post.image && (
+                <img
+                  src={post.image}
+                  className="w-full md:h-[300px] h-[240px] object-cover"
+                  alt=""
+                />
+              )}
+              <div className="flex justify-around w-full px-3 py-4 dark:text-gray-400 text-gray-500 items-center">
+                <i className="text-xl hover:cursor-pointer fa-solid fa-thumbs-up"></i>
 
-                  <NavLink to={`/allComment/${post.id}`}>
-                    <i className="text-xl hover:cursor-pointer fa-solid fa-comment"></i>
-                  </NavLink>
+                <NavLink to={`/allComment/${post.id}`}>
+                  <i className="text-xl hover:cursor-pointer fa-solid fa-comment"></i>
+                </NavLink>
 
-                  <i className="text-xl hover:cursor-pointer fa-solid fa-share-nodes"></i>
-                </div>
+                <i className="text-xl hover:cursor-pointer fa-solid fa-share-nodes"></i>
               </div>
               {sureDelete && (
                 <motion.div
@@ -131,7 +129,7 @@ export default function UserPosts() {
                   </button>
                 </motion.div>
               )}
-            </>
+            </div>
           ))}
         </section>
       )}

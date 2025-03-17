@@ -13,7 +13,7 @@ export let initialState = {
 export let getPosts = createAsyncThunk('posts/getPosts', async()=>{
 
 
-        let {data} = await axios.get('https://linked-posts.routemisr.com/posts?limit=50', {
+        let {data} = await axios.get('https://linked-posts.routemisr.com/posts?limit=300', {
           headers: {
             token: localStorage.getItem('token')
           }
@@ -30,7 +30,7 @@ export let getPost = createAsyncThunk('posts/getPost', async(id)=>{
             token: localStorage.getItem('token')
           }
         })
-        // console.log(data); 
+        console.log(data); 
         return data.post
 
 })

@@ -115,7 +115,7 @@ export default function AddPost() {
                     type="file"
                     className="hidden"
                   />
-                  <label for="dropzone-file" className="flex gap-x-4 items-center">
+                  <label for="dropzone-file" className="flex cursor-pointer gap-x-4 items-center">
                     <i className="text-green-700 mt-2 text-xl lg:text-2xl ms-1 fa-brands fa-whatsapp"></i>
                     <i className="text-red-500 mt-2 text-xl lg:text-xl ms-1 fa-solid fa-location-dot"></i>
                     <i className="text-amber-400 mt-2 text-xl lg:text-xl ms-1 fa-solid fa-face-smile"></i>

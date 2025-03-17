@@ -41,7 +41,7 @@ function App() {
   <RouterProvider router={routers}>
 </RouterProvider>             
 
-<Offline><div className="  py-2 px-4 fixed right-0 bottom-0 ">
+<Offline><div className=" z-50  py-2 px-4 fixed right-0 bottom-0 ">
              <div className="flex items-center p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-900  dark:text-blue-400 dark:blue-red-800" role="alert">
              <i className="fa-solid fa-circle-exclamation me-2"></i>
   <span className="sr-only">Info</span>
