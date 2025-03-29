@@ -50,7 +50,7 @@ export default function ProfilePhoto() {
 
       navigate('/profile');
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       toast.error('Failed to update photo');
     } finally {
       setLoading(false);

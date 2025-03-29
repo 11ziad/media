@@ -21,7 +21,7 @@ export default function Login() {
    
       dispatch(setLoading(true))
         let {data} =await axios.post('https://linked-posts.routemisr.com/users/signin', value)
-        console.log(data);
+        // console.log(data);
         dispatch(setToken(data))
         toast.success(data.message)     
         navigate('/')      
@@ -30,7 +30,7 @@ export default function Login() {
           toast.error('incorrect email or password')
           dispatch(setLoading(false))
         }
-        console.log(err.status);
+        // console.log(err.status);
         dispatch(setLoading(false))
         }
      

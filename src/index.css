@@ -5,8 +5,9 @@
 
 .active{
 
-    border-bottom: 3px solid white !important; 
+    border-bottom: 1.5px solid white !important; 
     color: white !important;
+    border-radius: 4px;
 }
 
 body{

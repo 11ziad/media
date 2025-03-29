@@ -6,6 +6,7 @@ import Loader from '../Loader/Loader';
 import toast from 'react-hot-toast'
 import { useFormik } from 'formik';
 import axios from 'axios';
+import LoadingComment from '../LoadingComment/LoadingComment';
 
 export default function AllComment() {
   const [load, setLoad] = useState(false);
@@ -17,7 +18,7 @@ export default function AllComment() {
 
   useEffect(() => {
     dispatch(getPost(id));
-  }, [dispatch, id]);
+  }, []);
 
   // Sort comments by createdAt (latest comments first)
   const sortedComments = post?.comments
@@ -40,12 +41,13 @@ export default function AllComment() {
       );
       dispatch(getPost(id));  // Re-fetch the post to ensure everything is in sync
       setLoad(false);
-      console.log(data);
+      // console.log(data);
+      toast.success('comment added successfully')
       
     } catch (err) {
       setLoad(false);
       toast.error('faild to send comment')
-      console.log(err);
+      // console.log(err);
     }
   }
 
@@ -65,9 +67,7 @@ export default function AllComment() {
 
   return (
     <section className="flex  lg:w-8/12 gap-y-6 flex-col w-11/12 justify-center py-9 lg:px-24 m-auto -mt-2">
-      {loading ? (
-        <Loader />
-      ) : (
+
         <>
           {/* Comment Input Form */}
           {showComment && (
@@ -133,10 +133,14 @@ export default function AllComment() {
                 <i className="text-xl hover:cursor-pointer fa-solid fa-share-nodes"></i>
               </div>
 
+
               {/* Comments Display */}
               {showComment && (
                 <div className="px-2 lg:px-4 py-2 pt-10">
                   <h1 className="text-lg font-semibold">Comments :</h1>
+                  {load ===true &&
+                  <LoadingComment></LoadingComment>
+                  }
                   {sortedComments?.map((comment) => (
                     <div className="bg-gray-100 relative dark:bg-gray-900 flex-col my-3 p-2 rounded-lg" key={comment.id}>
                       <div className="flex items-center space-x-3">
@@ -165,7 +169,7 @@ export default function AllComment() {
             <Loader />
           )}
         </>
-      )}
+    
     </section>
   );
 }

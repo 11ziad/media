@@ -30,7 +30,7 @@ export let getPost = createAsyncThunk('posts/getPost', async(id)=>{
             token: localStorage.getItem('token')
           }
         })
-        console.log(data); 
+        // console.log(data); 
         return data.post
 
 })

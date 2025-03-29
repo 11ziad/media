@@ -42,9 +42,9 @@ export default function AddPost() {
           },
         }
       );
-      console.log(data);
+      // console.log(data);
       setLoading(false);
-      toast.success(data.message);
+      toast.success('added successfully');
       navigate ('/profile')
 
     } catch (err) {

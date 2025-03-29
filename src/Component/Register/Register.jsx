@@ -20,19 +20,19 @@ export default function Register() {
 
   
   async function registerForm(value) {
-    console.log(value.name);
+    // console.log(value.name);
     
     try{
       dispatch(setLoading(true))
       let {data} = await axios.post('https://linked-posts.routemisr.com/users/signup', value)
-      console.log(data);
+      // console.log(data);
        toast.success(data.message)
        navigate('/login')
        dispatch(setLoading(false))
        setUserName(value.name)
     }catch(err){
       dispatch(setLoading(false))
-      console.log(err.response.data.error);
+      // console.log(err.response.data.error);
       setApiErr(err.response.data.error)
     }
     }

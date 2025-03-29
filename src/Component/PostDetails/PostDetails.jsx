@@ -36,7 +36,7 @@ export default function PostDetails() {
 
     return (
         <>
-            <motion.section
+                    <motion.section
                 variants={controlOpacity}
                 initial="hidden"
                 animate="visible"
@@ -51,7 +51,7 @@ export default function PostDetails() {
                                 <div className="flex mb-2 items-center">
                                     <NavLink to={'profile'}>
                                         <img
-                                            src={userProfile.photo}
+                                            src={userProfile?.photo}
                                             className="w-[40px] object-cover  h-[40px] rounded-full"
                                             alt=""
                                         />
@@ -61,8 +61,8 @@ export default function PostDetails() {
                                             <input
                                                 type="text"
                                                 id="simple-search"
-                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder={`What are you thinking ${userProfile.name}?...`}
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 p-2.5  dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                placeholder={`What are you thinking ${userProfile?.name}?...`}
                                                 required
                                             />
                                         </NavLink>
@@ -99,12 +99,12 @@ export default function PostDetails() {
                             >
                                 <div className="px-3 mb-4 flex items-center">
                                     <img
-                                        src={post.user.photo}
+                                        src={post.user?.photo}
                                         className="md:w-[40px] object-center me-3 md:h-[40px] h-[30px] w-[30px] rounded-full"
                                         alt=""
                                     />
                                     <div className="flex flex-col text-sm">
-                                        <h3 className="text-[13px] md:text-[14px] font-medium">{post.user.name}</h3>
+                                        <h3 className="text-[13px] md:text-[14px] font-medium">{post.user?.name}</h3>
                                         <span className="text-[11px] md:text-[13px]">{post.createdAt.slice(0, 10)}</span>
                                     </div>
                                 </div>
@@ -117,8 +117,8 @@ export default function PostDetails() {
                                         <NavLink to={`allComment/${post.id}`}>
                                         <input
                                         type="text"
-                                        id="content"
-                                        className="block w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 transition-all duration-300"
+                                        id="content"    
+                                        className="block w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 transition-all duration-300"
                                         placeholder="Add Comment..."
                                         required
                                         />

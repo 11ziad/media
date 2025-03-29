@@ -22,11 +22,11 @@ export default function UserContextProvider({children}){
           headers
       }
   );
-       console.log(data);
+      //  console.log(data);
        setUserProfile(data.user)
        setLoad(false)
   }catch(err){
-      console.log(err);
+      // console.log(err);
       setLoad(false)
   }
 

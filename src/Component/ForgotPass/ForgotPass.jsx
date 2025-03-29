@@ -30,12 +30,12 @@ export default function ForgotPass() {
                 }
             )
             toast.success('update password success')
-            console.log(data);
+            // console.log(data);
             dispatch(setToken(data))
             navigate('/')
             
         }catch(err){
-            console.log(err);
+            // console.log(err);
             toast.error('incorrect email or password')
               dispatch(setLoading(false))
         }

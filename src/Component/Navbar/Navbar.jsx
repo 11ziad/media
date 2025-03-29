@@ -11,7 +11,7 @@ export default function Navbar() {
   const [handelSetting, setHandelSetting] = useState(false);
   let ref = useRef();
   let { handelNav, setHandelNav } = useContext(ProvContext);
-  let { userProfile } = useContext(UserContext);
+  let { userProfile ,setUserProfile} = useContext(UserContext);
   let { token } = useSelector((store) => store.authReducer);
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -51,6 +51,7 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    setUserProfile()
     ref.current?.checked === true;
     if (localStorage.getItem('darkMood')) {
       document.body.classList.add('dark');
@@ -86,10 +87,10 @@ export default function Navbar() {
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
             {token && (
               <>
-                {userProfile.photo && (
+                {userProfile?.photo && (
                   <Link to={'/profile'}>
                     <img
-                      src={userProfile.photo}
+                      src={userProfile?.photo}
                       className="h-10 w-10 rounded-full object-cover"
                       alt=""
                     />
@@ -97,26 +98,26 @@ export default function Navbar() {
                 )}
                 <Link
                   to={'/profile'}
-                  className="self-center text-2xl font-semibold whitespace-nowrap me-3 uppercase text-gray-300 dark:text-gray-300"
+                  className="self-center lg:text-2xl text-xl font-semibold whitespace-nowrap me-3 uppercase text-gray-300 dark:text-gray-300"
                 >
-                  {userProfile.name}
+                  {userProfile?.name}
                 </Link>
                 <div className="ms-1 mt-1 hidden lg:flex">
                   <NavLink
                     to={'/'}
-                    className={'text-sm py-0.5 px-2 me-2 text-white dark:text-gray-300 uppercase font-medium'}
+                    className={'text-sm py-0.5 mx-2 px-1  text-white dark:text-gray-300 uppercase font-medium'}
                   >
                     Posts
                     <i className="ms-1 -translate-y-0.5 fa-solid fa-house"></i>
                   </NavLink>
                   <NavLink
                     to={'/profile'}
-                    className={'text-sm py-0.5 px-2 me-2 text-white dark:text-gray-300 uppercase font-medium'}
+                    className={'text-sm py-0.5 mx-2 px-1  text-white dark:text-gray-300 uppercase font-medium'}
                   >
                     Profile <i className="ms-1 -translate-y-0.5 fa-solid fa-user"></i>
                   </NavLink>
                   <NavLink
-                    className={'text-sm text-white uppercase py-0.5 px-2 dark:text-gray-300 font-medium'}
+                    className={'text-sm text-white uppercase mx-2 px-1  dark:text-gray-300 font-medium'}
                     to={'addPost'}
                   >
                     Add Post <i className="ms-0 -translate-y-0.5 fa-solid fa-plus"></i>

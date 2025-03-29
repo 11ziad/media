@@ -1,20 +1,21 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { lazy } from 'react'
 import Layout from './Component/Layout/Layout'
-import Login from './Component/Login/Login'
-import Register from './Component/Register/Register'
-import Home from './Component/Home/Home'
 import { Toaster } from 'react-hot-toast'
 import { store } from './Component/Redux/Store'
 import { Provider} from 'react-redux'
 import { ProvContextProvider } from './Context/NavContext'
-import ForgotPass from './Component/ForgotPass/ForgotPass'
-import ProtectedRoot from './Component/ProtectedRoot/ProtectedRoot'
 import { Offline } from "react-detect-offline";
-import Profile from './Component/Profile/Profile'
-import UserContextProvider, { UserContext } from './UserContext/UserContext'
-import AllComment from './Component/AllComment/AllComment'
-import AddPost from './Component/AddPost/AddPost'
-import ProfilePhoto from './Component/ProfilePhoto/ProfilePhoto'
+import Login from './Component/Login/Login'
+import Register from './Component/Register/Register'
+import Home from './Component/Home/Home'
+import ProtectedRoot from './Component/ProtectedRoot/ProtectedRoot'
+import UserContextProvider from './UserContext/UserContext'
+const ForgotPass = lazy(()=> import('./Component/ForgotPass/ForgotPass'))
+const Profile = lazy(()=> import('./Component/Profile/Profile'))
+const AllComment = lazy(()=> import('./Component/AllComment/AllComment'))
+const AddPost = lazy(()=> import('./Component/AddPost/AddPost'))
+const ProfilePhoto = lazy(()=> import('./Component/ProfilePhoto/ProfilePhoto'))
 import NotFound from './Component/NotFound/NotFound'
 
 function App() {
