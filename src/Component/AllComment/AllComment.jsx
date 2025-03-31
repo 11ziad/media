@@ -64,84 +64,84 @@ export default function AllComment() {
 
 
 
-
   return (
-    <section className="flex  lg:w-8/12 gap-y-6 flex-col w-11/12 justify-center py-9 lg:px-24 m-auto -mt-2">
-
-        <>
-          {/* Comment Input Form */}
-          {showComment && (
-            <form
-              onSubmit={formik.handleSubmit}
-              className="fixed m-auto z-50 w-11/12 lg:ms-3 lg:w-1/2 bottom-4"
-            >
-              <div className="relative">
-                <input
-                  type="text"
-                  value={formik.values.content}
-                  onBlur={formik.handleBlur}
-                  onChange={formik.handleChange}
-                  id="content"
-                  className="block w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-500 dark:text-black focus:outline-none  focus:bg-gray-300 transition-all duration-300"
-                  placeholder="Add Comment..."
-                  required
-                />
-                <button
-                  type="submit"
-                  disabled={load}
-                  className={`absolute right-2 bottom-2 hover:cursor-pointer translate-y-0.5   bg-blue-700 hover:bg-blue-800 text-white font-medium py-1.5 px-4 rounded-lg transition-all duration-300 flex items-center ${load ? 'cursor-wait' : ''}`}
-                >
-                  {load ? (
-                    <i className="fa-solid fa-spinner fa-spin text-xl "></i>
-                  ) : (
-                    <>
-                      <i class="fa-solid fa-paper-plane me-1 text-sm"></i> Add
-                    </>
-                  )}
-                </button>
+    <section className="flex lg:w-8/12 gap-y-6 flex-col w-11/12 justify-center py-9 lg:px-24 m-auto -mt-2">
+      <>
+        {/* Comment Input Form */}
+        {showComment && (
+          <form
+            onSubmit={formik.handleSubmit}
+            className="fixed m-auto z-50 w-11/12 lg:ms-3 lg:w-1/2 bottom-4"
+          >
+            <div className="relative">
+              <input
+                type="text"
+                value={formik.values.content}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                id="content"
+                className="block w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-500 dark:text-black focus:outline-none  focus:bg-gray-300 transition-all duration-300"
+                placeholder="Add Comment..."
+                required
+              />
+              <button
+                type="submit"
+                disabled={load}
+                className={`absolute right-2 bottom-2 hover:cursor-pointer translate-y-0.5 bg-blue-700 hover:bg-blue-800 text-white font-medium py-1.5 px-4 rounded-lg transition-all duration-300 flex items-center ${load ? 'cursor-wait' : ''}`}
+              >
+                {load ? (
+                  <i className="fa-solid fa-spinner fa-spin text-xl "></i>
+                ) : (
+                  <>
+                    <i className="fa-solid fa-paper-plane me-1 text-sm"></i> Add
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+        )}
+  
+        {/* Post Display */}
+        {post ? (
+          <div className="w-full shadow-md rounded-lg relative overflow-hidden pt-3 pb-4 m-auto dark:bg-gray-800 dark:text-gray-200 bg-amber-50">
+            <NavLink to={'/'}>
+              <i className="fa-solid fa-xmark absolute hover:cursor-pointer top-3 right-3 text-2xl"></i>
+            </NavLink>
+            <div className="px-3 mb-4 flex items-center">
+              <img
+                src={post.user?.photo}
+                className="md:w-[40px] object-cover me-3 md:h-[40px] h-[30px] w-[30px] rounded-full"
+                alt="User"
+              />
+              <div className="flex flex-col text-sm">
+                <h3 className="text-[13px] md:text-[14px] font-medium">{post.user?.name}</h3>
+                <span className="text-[11px] md:text-[13px]">{post.createdAt?.slice(0, 10)}</span>
               </div>
-            </form>
-          )}
-
-          {/* Post Display */}
-          {post ? (
-            <div className="w-full shadow-md rounded-lg relative overflow-hidden pt-3 pb-4 m-auto dark:bg-gray-800 dark:text-gray-200 bg-amber-50">
-              <NavLink to={'/'}>
-                <i className="fa-solid fa-xmark absolute hover:cursor-pointer top-3 right-3 text-2xl"></i>
-              </NavLink>
-              <div className="px-3 mb-4 flex items-center">
-                <img
-                  src={post.user?.photo}
-                  className="md:w-[40px] object-cover me-3 md:h-[40px] h-[30px] w-[30px] rounded-full"
-                  alt="User"
-                />
-                <div className="flex flex-col text-sm">
-                  <h3 className="text-[13px] md:text-[14px] font-medium">{post.user?.name}</h3>
-                  <span className="text-[11px] md:text-[13px]">{post.createdAt?.slice(0, 10)}</span>
-                </div>
-              </div>
-              <p className="ps-4 pb-3 pt-3 text-sm">{post.body}</p>
-              {post.image && (
-                <img src={post.image} className="w-full md:h-[300px] h-[240px] object-cover" alt="Post Image" />
-              )}
-              <div className="flex justify-around w-full px-3 py-4 pb-10 border-b border-gray-300 dark:text-gray-400 text-gray-500 items-center">
-                <i className="text-xl hover:cursor-pointer fa-solid fa-thumbs-up"></i>
-                <i
-                  onClick={() => setShowComment(!showComment)}
-                  className={`text-xl hover:cursor-pointer fa-solid fa-comment ${showComment ? 'text-blue-700' : ''}`}
-                ></i>
-                <i className="text-xl hover:cursor-pointer fa-solid fa-share-nodes"></i>
-              </div>
-
-
-              {/* Comments Display */}
-              {showComment && (
-                <div className="px-2 lg:px-4 py-2 pt-10">
-                  <h1 className="text-lg font-semibold">Comments :</h1>
-                  {load ===true &&
-                  <LoadingComment></LoadingComment>
-                  }
-                  {sortedComments?.map((comment) => (
+            </div>
+            <p className="ps-4 pb-3 pt-3 text-sm">{post.body}</p>
+            {post.image && (
+              <img src={post.image} className="w-full md:h-[300px] h-[240px] object-cover" alt="Post Image" />
+            )}
+            <div className="flex justify-around w-full px-3 py-4 pb-10 border-b border-gray-300 dark:text-gray-400 text-gray-500 items-center">
+              <i className="text-xl hover:cursor-pointer fa-solid fa-thumbs-up"></i>
+              <i
+                onClick={() => setShowComment(!showComment)}
+                className={`text-xl hover:cursor-pointer fa-solid fa-comment ${showComment ? 'text-blue-700' : ''}`}
+              ></i>
+              <i className="text-xl hover:cursor-pointer fa-solid fa-share-nodes"></i>
+            </div>
+  
+            {/* Comments Display */}
+            {showComment && (
+              <div className="px-2 lg:px-4 py-5 pt-10">
+                <h1 className="text-lg font-semibold">Comments :</h1>
+                {load === true && <LoadingComment />}
+                
+                {/* Check if there are no comments */}
+                {sortedComments.length === 0 ? (
+                  <p className="text-gray-500 mt-4">No comments yet....</p>
+                ) : (
+                  sortedComments?.map((comment) => (
                     <div className="bg-gray-100 relative dark:bg-gray-900 flex-col my-3 p-2 rounded-lg" key={comment.id}>
                       <div className="flex items-center space-x-3">
                         {comment?.commentCreator?.photo.includes('undefined') ? (
@@ -161,15 +161,17 @@ export default function AllComment() {
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ) : (
-            <Loader />
-          )}
-        </>
-    
+                  ))
+                )}
+              </div>
+            )}
+          </div>
+        ) : (
+          <Loader />
+        )}
+      </>
     </section>
   );
+  
 }
+

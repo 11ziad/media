@@ -13,10 +13,10 @@ import ProtectedRoot from './Component/ProtectedRoot/ProtectedRoot'
 import UserContextProvider from './UserContext/UserContext'
 const ForgotPass = lazy(()=> import('./Component/ForgotPass/ForgotPass'))
 const Profile = lazy(()=> import('./Component/Profile/Profile'))
-const AllComment = lazy(()=> import('./Component/AllComment/AllComment'))
 const AddPost = lazy(()=> import('./Component/AddPost/AddPost'))
 const ProfilePhoto = lazy(()=> import('./Component/ProfilePhoto/ProfilePhoto'))
 import NotFound from './Component/NotFound/NotFound'
+import AllComment from './Component/AllComment/AllComment'
 
 function App() {
   const routers = createBrowserRouter([
