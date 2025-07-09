@@ -112,7 +112,7 @@ export default function UserPosts() {
                       <input
                         type="text"
                         id="content"
-                        className="block w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 focus:outline-none transition-all duration-300"
+                        className="block hover:cursor-pointer w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 focus:outline-none transition-all duration-300"
                         placeholder="Add Comment..."
                         required
                       />

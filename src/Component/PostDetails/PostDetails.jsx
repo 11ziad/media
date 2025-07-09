@@ -61,7 +61,7 @@ export default function PostDetails() {
                                             <input
                                                 type="text"
                                                 id="simple-search"
-                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 p-2.5  dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                className="bg-gray-50 hover:cursor-pointer disabled border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 p-2.5  dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder={`What are you thinking ${userProfile?.name}?...`}
                                                 required
                                             />
@@ -118,7 +118,7 @@ export default function PostDetails() {
                                         <input
                                         type="text"
                                         id="content"    
-                                        className="block w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 transition-all duration-300"
+                                        className="block hover:cursor-pointer w-full p-3.5 ps-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 transition-all duration-300"
                                         placeholder="Add Comment..."
                                         required
                                         />
