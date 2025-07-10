@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
-import { UserContext } from '../../UserContext/UserContext';
-import { useDispatch, useSelector } from 'react-redux';
-import UserPosts from '../UserPosts/UserPosts';
-import { NavLink } from 'react-router-dom';
-import { userPosts } from '../Redux/postsSlice';
-import Loader from '../Loader/Loader';
-import { motion } from 'framer-motion';
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "../../UserContext/UserContext";
+import { useDispatch, useSelector } from "react-redux";
+import UserPosts from "../UserPosts/UserPosts";
+import { NavLink } from "react-router-dom";
+import { userPosts } from "../Redux/postsSlice";
+import Loader from "../Loader/Loader";
+import { motion } from "framer-motion";
 
 export default function Profile() {
   const { userProfile } = useContext(UserContext);
@@ -26,49 +26,40 @@ export default function Profile() {
 
   return (
     <>
-
       {loading ? (
         <Loader />
       ) : (
         <>
-          <motion.section variants={controlOpacity} initial="hidden" animate="visible">
-            <div className="shadow dark:bg-gray-900 rounded-lg w-11/12 lg:w-6/12 mx-auto lg:p-10 translate-y-3">
+          <motion.section
+            variants={controlOpacity}
+            initial="hidden"
+            animate="visible"
+          >
+            <div className="shadow dark:bg-gray-900  rounded-lg w-11/12 lg:w-6/12 mx-auto lg:p-10 translate-y-3">
               {/* Profile Image Section */}
-              <div className="flex flex-col justify-center items-center lg:flex-row lg:gap-x-10 gap-y-4">
-
-                <div className="w-[50%] lg:w-[40%] m-auto lg:h-[40%] rounded-full relative">
-                <NavLink to="/profilePhoto">
-                  <img
-                // <i className="text-gray-700 text-xl lg:text-2xl fa-solid fa-plus"></i>
-                src={userProfile?.photo}
-                className=" object-cover m-auto lg:h-60 lg:w-60 h-40 w-40  rounded-full"
-                alt="User Profile"
-                />
-                    </NavLink>
+              <div className="flex flex-col justify-center h-100 items-center gap-y-4">
+                <div className="w-[100%] m-auto relative">
+                  <NavLink to="/profilePhoto">
+                    <img
+                      src={userProfile?.photo}
+                      className=" object-cover m-auto h-80 w-full"
+                      alt="User Profile"
+                    />
+                  </NavLink>
                 </div>
 
                 {/* User Info Section */}
-                <div className="ps-1 lg:-translate-y-1 lg:ps-0">
-                  <div className="flex text-sm flex-wrap ps-2 border-l rounded-lg  flex-col">
-                    <span className="py-2 font-medium dark:text-gray-200">
-                      Name : <span className="text-blue-600 font-bold ms-1">{userProfile?.name}</span>
-                    </span>
-                    <span className="py-2 font-medium dark:text-gray-200">
-                      Email : <span className="text-blue-600 font-bold ms-1">{userProfile?.email}</span>
-                    </span>
-                    <span className="py-2 font-medium dark:text-gray-200">
-                      Date of Birth :{' '}
-                      <span className="text-blue-600 font-bold ms-1">{userProfile?.dateOfBirth}</span>
-                    </span>
-                    <span className="py-2 font-medium dark:text-gray-200">
-                      Gender : <span className="text-blue-600 font-bold ms-1">{userProfile?.gender}</span>
-                    </span>
-                    <span className="py-2 font-medium dark:text-gray-200">
-                      Join History :{' '}
-                      <span className="text-blue-600 font-bold ms-1">
-                        {userProfile?.createdAt?.slice(0, 10)}
-                      </span>
-                    </span>
+                <div className="flex items-center ms-auto gap-x-3 pe-[30px] -translate-y-8">
+                  <span className=" font-bold dark:text-white text-2xl ms-1">
+                    {userProfile?.name}
+                  </span>
+                  <div className=" bg-white rounded-full border-2 p-1">
+
+                  <img
+                    src={userProfile?.photo}
+                    className="object-cover m-auto h-30 w-30  rounded-full"
+                    alt="user"
+                  />
                   </div>
                 </div>
               </div>
@@ -86,7 +77,7 @@ export default function Profile() {
                     />
                   </NavLink>
                   <div className="relative  ms-3 w-full">
-                    <NavLink to={'/addPost'}>
+                    <NavLink to={"/addPost"}>
                       <input
                         type="text"
                         id="simple-search"
@@ -102,13 +93,22 @@ export default function Profile() {
               {/* Post Options Section */}
               <div className="flex items-center text-gray-500 dark:text-gray-300 text-sm lg:text-md lg:font-medium justify-around px-5 mt-3">
                 <NavLink to="/addPost">
-                  Reels <span><i className="text-red-400 mt-2 text-md lg:text-xl ms-1 fa-solid fa-film"></i></span>
+                  Reels{" "}
+                  <span>
+                    <i className="text-red-400 mt-2 text-md lg:text-xl ms-1 fa-solid fa-film"></i>
+                  </span>
                 </NavLink>
                 <NavLink to="/addPost">
-                  Photo <span><i className="text-green-700 mt-2 text-md lg:text-xl ms-1 fa-solid fa-images"></i></span>
+                  Photo{" "}
+                  <span>
+                    <i className="text-green-700 mt-2 text-md lg:text-xl ms-1 fa-solid fa-images"></i>
+                  </span>
                 </NavLink>
                 <NavLink to="/addPost">
-                  Live <span><i className="text-red-600 text-md lg:text-xl mt-2 lg:translate-y-0.5 ms-1 fa-solid fa-video"></i></span>
+                  Live{" "}
+                  <span>
+                    <i className="text-red-600 text-md lg:text-xl mt-2 lg:translate-y-0.5 ms-1 fa-solid fa-video"></i>
+                  </span>
                 </NavLink>
               </div>
             </header>

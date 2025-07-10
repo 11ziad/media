@@ -124,7 +124,7 @@ export default function UserPosts() {
                     variants={setAnimation}
                     initial="hidden"
                     animate="visible"
-                    className="rounded-xl shadow-xl dark:text-gray-200 text-black dark:bg-gray-500 bg-gray-300 w-11/12 lg:w-1/3 m-auto fixed left-0 right-0 lg:top-52 lg:bottom-30 top-60 bottom-40 lg:left-52 lg:right-52 flex-col flex justify-center items-center"
+                    className="rounded-xl shadow-xl h-2/5 dark:text-gray-200 text-black dark:bg-gray-500 bg-gray-200 w-11/12 lg:w-1/3 m-auto fixed left-0 right-0 lg:top-52 lg:bottom-30 top-60 bottom-40 lg:left-52 lg:right-52 flex-col flex justify-center items-center"
                   >
                     <i
                       onClick={() => setSureDelete(false)}
