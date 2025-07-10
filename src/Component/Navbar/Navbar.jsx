@@ -6,8 +6,6 @@ import { ProvContext } from '../../Context/NavContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { removToken } from '../Redux/authSlice';
 import { UserContext } from '../../UserContext/UserContext';
-import { useTranslation } from 'react-i18next';
-
 
 export default function Navbar() {
   const [handelSetting, setHandelSetting] = useState(false);
@@ -17,9 +15,6 @@ export default function Navbar() {
   let { token } = useSelector((store) => store.authReducer);
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  const { t, i18n } = useTranslation();
-
-  
 
   let navAnimation = {
     hidden: {
